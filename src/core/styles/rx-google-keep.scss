@@ -1,11 +1,14 @@
+@import 'vars';
+@import 'globals';
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+  font-family: 'Product Sans', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -13,22 +16,89 @@ code {
 }
 
 .rx-google-keep-wrapper {
-  @import 'vars';
   --white: #fff;
   --black: #000;
 
   background-color: var(--white);
-
-  ::-webkit-scrollbar {
-    height: 16px;
-    overflow: visible;
-    width: 16px;
-  }
+  color: $primary_color;
+  height: 100vh;
+  overflow: auto;
 
   .rx-google-keep-content {
     z-index: 10;
     margin-top: $rx-navbar-h;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    .rx-google-keep-content-left {
+      width: $rx-sidenav-w;
+    }
+
+    .rx-google-keep-content-left-placeholder {
+      background: transparent;
+      min-width: $rx-sidenav-w;
+      position: relative;
+    }
   }
 
   @import 'navbar';
+  @import 'sidenav';
+  @import 'body';
+}
+
+.scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
+}
+.scrollbar ::-webkit-scrollbar-button {
+  height: 0;
+  width: 0;
+}
+.scrollbar::-webkit-scrollbar {
+  height: 16px;
+  overflow: visible;
+  width: $rx-scrollbar-w;
+}
+.scrollbar::-webkit-scrollbar-track {
+  background-clip: padding-box;
+  border: solid transparent;
+  border-width: 0 0 0 4px;
+}
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, .2);
+  background-clip: padding-box;
+  border: solid transparent;
+  border-width: 1px 1px 1px 6px;
+  min-height: 28px;
+  padding: 100px 0 0;
+  -webkit-box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);
+  box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  border-width: 1px 1px 1px 2px;
+}
+
+.scrollbar::-webkit-scrollbar-corner {
+  background-clip: padding-box;
+  background-color: #f5f5f5;
+  border: solid #fff;
+  border-width: 3px 0 0 3px;
+  -webkit-box-shadow: inset 1px 1px 0 rgb(0 0 0 / 14%);
+  box-shadow: inset 1px 1px 0 rgb(0 0 0 / 14%);
+}
+
+.scrollbar::-webkit-scrollbar-track-piece {
+  background-clip: padding-box;
+  background-color: #f5f5f5;
+  border: solid #fff;
+  -webkit-box-shadow: inset 1px 0 0 rgb(0 0 0 / 14%), inset -1px 0 0 rgb(0 0 0 / 7%);
+  box-shadow: inset 1px 0 0 rgb(0 0 0 / 14%), inset -1px 0 0 rgb(0 0 0 / 7%);
+}
+
+.scrollbar::-webkit-scrollbar-track-piece {
+  border-width: 0;
 }
