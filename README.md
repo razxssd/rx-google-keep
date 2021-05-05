@@ -9,11 +9,11 @@
 </tr>
 </table>
 
-##Demo
+## Demo
 
 Here is a working live demo: //TODO
 
-##Purpose
+## Purpose
 
 Approaching to React world in the best way possible, creating and experimenting.
 I have made used of:
@@ -25,7 +25,7 @@ I have made used of:
     - Build in
     - Custom
   
-##Installation
+## Installation
 
 The installation requires Node, after that all you need to do is to run npm install to load dependencies
 ```bash
