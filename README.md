@@ -23,14 +23,12 @@ I have made used of:
     - Custom
   
 ##Installation
-
 The installation requires Node, after that all you need to do is to run npm install to load dependencies
 ```bash
 npm install
 ```
 
 ## Usage
-
 ```bash
 npm start
 ```
