@@ -1,4 +1,5 @@
 # React Google Keep clone by Razxssd
+
 <table>
 <tr>
 <td>
@@ -9,9 +10,11 @@
 </table>
 
 ##Demo
+
 Here is a working live demo: //TODO
 
 ##Purpose
+
 Approaching to React world in the best way possible, creating and experimenting.
 I have made used of:
 - React TypeScript
@@ -23,18 +26,22 @@ I have made used of:
     - Custom
   
 ##Installation
+
 The installation requires Node, after that all you need to do is to run npm install to load dependencies
 ```bash
 npm install
 ```
 
 ## Usage
+
 ```bash
 npm start
 ```
 
 ## Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
+
 [MIT](https://choosealicense.com/licenses/mit/)
