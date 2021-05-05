@@ -1,3 +1,6 @@
+.rx-body-container {
+  width: 100%;
+}
 .rx-body-container .temp {
   width: 500px;
   height: 500px;
