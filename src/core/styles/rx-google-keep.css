@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.rx-google-keep-wrapper {
+  --white: #fff;
+  --black: #000;
+  background-color: var(--white);
+}
+.rx-google-keep-wrapper ::-webkit-scrollbar {
+  height: 16px;
+  overflow: visible;
+  width: 16px;
+}
+.rx-google-keep-wrapper .rx-google-keep-content {
+  z-index: 10;
+  margin-top: 64px;
+}
+.rx-google-keep-wrapper .rx-navbar {
+  height: 64px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 988;
+  -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  color: var(--black);
+}
+.rx-google-keep-wrapper .rx-navbar .content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+/*# sourceMappingURL=rx-google-keep.css.map */
