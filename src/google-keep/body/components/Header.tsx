@@ -1,31 +1,34 @@
 import React from 'react';
-import { brush, check_box, image } from "../../../core/google-icons";
+import {brush, check_box, image, pin} from "../../../core/google-icons";
+import {useOnClickOutside} from "../../../core/hooks/useOnClickOutside";
 
 export const Header: React.FC = () => {
   const [isContentEditableFocus, setIsContentEditableFocus] = React.useState(false);
 
   const setIsContentEditableFocusHandler = React.useCallback((value) => {
     setIsContentEditableFocus(value);
-  }, [])
+  }, []);
 
-  console.log({isContentEditableFocus})
+  const headerBoxRef = React.useRef<any | null>(null);
+  useOnClickOutside(headerBoxRef, () => setIsContentEditableFocusHandler(false));
 
   return <div className="rx-body-header-container">
-    <div className={`rx-body-header-box ${isContentEditableFocus ? 'open' : ''}`}>
+    <div className={`rx-body-header-box ${isContentEditableFocus ? 'open' : ''}`} ref={headerBoxRef}>
 
       {
         isContentEditableFocus &&
-        <div>
-          <div className="rx-body-header-input">
+        <div className="rx-body-header-box-top-container">
+          <div className="rx-body-header-icon-separator"/>
+          <div className="rx-body-header-input title">
             <div
               contentEditable="true"
               className="rx-text-box"
-              placeholder="Scrivi una nota..."
+              placeholder="Titolo"
               onFocus={() => setIsContentEditableFocusHandler(true)}
-              onBlur={() => setIsContentEditableFocusHandler(false)}
+              // onBlur={() => setIsContentEditableFocusHandler(false)}
             />
           </div>
-          action
+          <div className="icon-container">{pin}</div>
         </div>
       }
 
@@ -35,7 +38,7 @@ export const Header: React.FC = () => {
           className="rx-text-box"
           placeholder="Scrivi una nota..."
           onFocus={() => setIsContentEditableFocusHandler(true)}
-          onBlur={() => setIsContentEditableFocusHandler(false)}
+          //onBlur={() => setIsContentEditableFocusHandler(false)}
         />
       </div>
 

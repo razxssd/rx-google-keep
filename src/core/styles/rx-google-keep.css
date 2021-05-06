@@ -246,7 +246,7 @@ code {
   background-color: green;
 }
 .rx-google-keep-wrapper .rx-body-container .rx-body-header-container {
-  margin: 32px 10px 16px 10px;
+  margin: 32px 22% 16px 22%;
   position: relative;
 }
 .rx-google-keep-wrapper .rx-body-container .rx-body-header-container .rx-body-header-box {
@@ -286,7 +286,7 @@ code {
   color: #80868b;
   font-size: 0.9rem;
   cursor: text;
-  font-weight: 460;
+  font-weight: 400;
 }
 .rx-google-keep-wrapper .rx-body-container .rx-body-header-container .rx-body-header-box .rx-body-header-actions {
   display: flex;
@@ -299,6 +299,12 @@ code {
 .rx-google-keep-wrapper .rx-body-container .rx-body-header-container .rx-body-header-box.open {
   flex-direction: column;
 }
+@media (max-width: 1024px) {
+  .rx-google-keep-wrapper .rx-body-container .rx-body-header-container {
+    margin: 32px 3% 16px 3%;
+  }
+}
+
 .scrollbar::-webkit-scrollbar-corner {
   background: transparent;
 }
