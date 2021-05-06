@@ -55,7 +55,9 @@
   width: 100%;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  padding: 11px 0;
 }
+
 .rx-tooltip-container {
   position: relative;
 }
@@ -94,7 +96,7 @@ code {
 }
 .rx-google-keep-wrapper .rx-google-keep-content {
   z-index: 10;
-  margin-top: 64px;
+  margin-top: 58px;
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -111,7 +113,7 @@ code {
   position: relative;
 }
 .rx-google-keep-wrapper .rx-navbar {
-  height: 64px;
+  height: 58px;
   position: fixed;
   top: 0;
   width: calc(100% - 16px);
@@ -133,6 +135,7 @@ code {
 }
 .rx-google-keep-wrapper .rx-navbar .content .rx-navbar-section-one {
   flex-grow: 0.4;
+  margin-right: 4rem;
 }
 .rx-google-keep-wrapper .rx-navbar .content .rx-navbar-section-two {
   flex-grow: 2;
@@ -149,6 +152,13 @@ code {
 .rx-google-keep-wrapper .rx-navbar .rx-navbar-title .rx-navbar-title-text {
   font-size: 22px;
   padding-left: 4px;
+}
+.rx-google-keep-wrapper .rx-navbar .rx-navbar-title .rx-navbar-title-text-secondary {
+  padding-left: 4px;
+  font-family: Google Sans, Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #3c4043;
 }
 .rx-google-keep-wrapper .rx-navbar .rx-navbar-data {
   display: flex;
@@ -174,14 +184,14 @@ code {
   width: 280px;
   display: flex;
   flex-direction: column;
-  height: calc(100% - 64px);
+  height: calc(100% - 58px);
 }
 .rx-google-keep-wrapper .rx-sidenav-container .rx-sidenav-elem-container {
   background-color: var(--white);
   cursor: pointer;
   display: flex;
   align-items: center;
-  padding: 12px 24px;
+  padding: 9.5px 24px;
   border-radius: 0 25px 25px 0;
   color: var(--black);
 }
@@ -194,8 +204,8 @@ code {
 .rx-google-keep-wrapper .rx-sidenav-container .rx-sidenav-elem-container .rx-sidenav-elem-container-text {
   margin-left: 20px;
   font-family: "Google Sans", Roboto, Arial, sans-serif;
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.775rem;
+  font-weight: 460;
 }
 .rx-google-keep-wrapper .rx-sidenav-container .rx-sidenav-elem-container.active {
   background-color: #feefc3;
@@ -235,7 +245,60 @@ code {
   height: 500px;
   background-color: green;
 }
-
+.rx-google-keep-wrapper .rx-body-container .rx-body-header-container {
+  margin: 32px 10px 16px 10px;
+  position: relative;
+}
+.rx-google-keep-wrapper .rx-body-container .rx-body-header-container .rx-body-header-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  padding: 0 8px;
+}
+.rx-google-keep-wrapper .rx-body-container .rx-body-header-container .rx-body-header-box .rx-body-header-input {
+  min-height: 32px;
+  color: #202124;
+  letter-spacing: 0.01428571em;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.rx-google-keep-wrapper .rx-body-container .rx-body-header-container .rx-body-header-box .rx-body-header-input .rx-text-box {
+  outline: none;
+  user-select: text;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  width: 100%;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+}
+.rx-google-keep-wrapper .rx-body-container .rx-body-header-container .rx-body-header-box .rx-body-header-input .rx-text-box:empty:before {
+  content: attr(placeholder);
+  color: #80868b;
+  font-size: 0.9rem;
+  cursor: text;
+  font-weight: 460;
+}
+.rx-google-keep-wrapper .rx-body-container .rx-body-header-container .rx-body-header-box .rx-body-header-actions {
+  display: flex;
+  flex-direction: row;
+}
+.rx-google-keep-wrapper .rx-body-container .rx-body-header-container .rx-body-header-box .rx-body-header-actions .icon-container {
+  height: 42px;
+  width: 42px;
+}
+.rx-google-keep-wrapper .rx-body-container .rx-body-header-container .rx-body-header-box.open {
+  flex-direction: column;
+}
 .scrollbar::-webkit-scrollbar-corner {
   background: transparent;
 }

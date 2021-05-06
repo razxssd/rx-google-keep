@@ -13,6 +13,7 @@ export interface ISideNavProps {
 export interface ISideNavActiveElement {
   key: string;
   value: boolean;
+  label: string;
 }
 
 export interface INavbarProps {

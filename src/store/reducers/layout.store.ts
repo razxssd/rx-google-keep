@@ -1,15 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ILayoutStoreProps, ISideNavActiveElement } from "../../core/interfaces/ILayoutState";
+import { ILayoutStoreProps, INavbarProps, ISideNavActiveElement } from "../../core/interfaces/ILayoutState";
 import { marks } from "../../core/mock/marks";
+import { config } from "../../core/config";
 
 const initialStateValue: ILayoutStoreProps = {
   sidenav: {
     marks: marks,
-    activeElement: {key: 'note', value: true}
+    activeElement: {label: 'Keep', key: 'note', value: true}
   },
   navbar: {
     title: 'Keep',
-    isBodyAtTop: true
+    isBodyAtTop: true,
+    icon: config.Default_Keep_Img_URL
   }
 }
 
@@ -22,6 +24,9 @@ export const layoutStore = createSlice({
     },
     setNavbarIsBodyAtTop(state, action: PayloadAction<boolean>): ILayoutStoreProps {
       return {...state, navbar: {...state.navbar, isBodyAtTop: action.payload}}
+    },
+    setNavbarTitle(state, action: PayloadAction<Pick<INavbarProps, 'icon' | 'title'>>): ILayoutStoreProps {
+      return {...state, navbar: {...state.navbar, icon: action.payload.icon, title: action.payload.title}}
     }
   }
 });
@@ -29,5 +34,6 @@ export const layoutStore = createSlice({
 
 export const {
   setSidenavActiveElement,
-  setNavbarIsBodyAtTop
+  setNavbarIsBodyAtTop,
+  setNavbarTitle
 } = layoutStore.actions;

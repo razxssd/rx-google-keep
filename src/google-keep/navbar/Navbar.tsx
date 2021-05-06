@@ -2,12 +2,12 @@ import React from 'react';
 import { hamburger, refresh, search, avatar, settings, list, app_google } from '../../core/google-icons/index'
 import { Tooltip } from "../../core/components";
 import { useSelector } from "react-redux";
-import { getLayoutNavbarIsBodyAtTop } from "../../store/selectors/layout.selector";
+import { getLayoutNavbar } from "../../store/selectors/layout.selector";
 
 export const Navbar: React.FC = () => {
-  const isBodyAtTop = useSelector(getLayoutNavbarIsBodyAtTop);
+  const navbarState = useSelector(getLayoutNavbar);
 
-  return <header className={`rx-navbar ${!isBodyAtTop ? 'shadow' : ''}`}>
+  return <header className={`rx-navbar ${!navbarState.isBodyAtTop ? 'shadow' : ''}`}>
     <div className="content">
       <div className="rx-navbar-section-one">
         <Tooltip label='Menu principale'>
@@ -18,8 +18,11 @@ export const Navbar: React.FC = () => {
 
 
         <div className="rx-navbar-title">
-          <img src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png" alt="google keep"/>
-          <span className="rx-navbar-title-text">Keep</span>
+          {navbarState.icon ? <React.Fragment>
+            <img src={navbarState.icon} alt="google keep"/>
+            <span className="rx-navbar-title-text">{navbarState.title}</span>
+          </React.Fragment> : <span className="rx-navbar-title-text-secondary">{navbarState.title}</span>}
+
         </div>
       </div>
 

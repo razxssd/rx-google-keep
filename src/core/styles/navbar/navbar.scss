@@ -21,6 +21,7 @@
     }
     .rx-navbar-section-one {
       flex-grow: .4;
+      margin-right: 4rem;
     }
     .rx-navbar-section-two{
       flex-grow: 2;
@@ -40,6 +41,14 @@
     .rx-navbar-title-text {
       font-size: 22px;
       padding-left: 4px;
+    }
+
+    .rx-navbar-title-text-secondary {
+      padding-left: 4px;
+      font-family: Google Sans,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: $gray_100;
     }
   }
 
