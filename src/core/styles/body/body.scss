@@ -22,7 +22,7 @@
       position: relative;
       -webkit-border-radius: 8px;
       border-radius: 8px;
-      padding: 0 8px;
+      max-height: 500px;
 
       .rx-body-header-input-container {
 
@@ -38,7 +38,6 @@
         line-height: 1.25rem;
         display: flex;
         align-items: center;
-        width: 100%;
         max-height: 500px;
         overflow-y: auto;
         padding-left: 15px;
@@ -59,6 +58,9 @@
             cursor: text;
             font-weight: 400;
           }
+          &:empty:focus::before {
+            content: attr(placeholder);
+          }
         }
       }
 
@@ -74,6 +76,7 @@
         width: auto;
         overflow: unset;
         padding: 10px 15px;
+        padding-top: 15px;
       }
 
       .rx-body-header-icon-separator{
@@ -94,6 +97,41 @@
 
       .rx-body-header-box-top-container {
         position: relative;
+        -webkit-transition: background-color .218s ease-in-out,box-shadow .218s ease-in-out;
+        transition: background-color .218s ease-in-out,box-shadow .218s ease-in-out;
+      }
+
+      .rx-body-header-box-top-container.shadow {
+        -webkit-box-shadow: 0 2px 5px -2px rgb(0 0 0 / 20%);
+        box-shadow: 0 2px 5px -2px rgb(0 0 0 / 20%);
+        border-radius: 8px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      .rx-body-header-footer {
+        -webkit-transition: background-color .218s ease-in-out,box-shadow .218s ease-in-out;
+        transition: background-color .218s ease-in-out,box-shadow .218s ease-in-out;
+        display: flex;
+        padding: 5px 5px;
+
+        .rx-body-header-footer-actions {
+          display: flex;
+          justify-content: space-between;
+          width: 68%;
+        }
+
+        .rx-body-header-footer-button {
+          margin-left: auto;
+        }
+      }
+
+      .rx-body-header-footer.shadow {
+        -webkit-box-shadow: 0 -5px 5px -5px rgb(0 0 0 / 20%);
+        box-shadow: 0 -5px 5px -5px rgb(0 0 0 / 20%);
+        border-radius: 8px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
       }
     }
 

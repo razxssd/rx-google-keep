@@ -20,7 +20,8 @@
       align-content: center;
     }
     .rx-navbar-section-one {
-      flex-grow: .4;
+      max-width: 200px;
+      min-width: 170px;
       margin-right: 4rem;
     }
     .rx-navbar-section-two{
