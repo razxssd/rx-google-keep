@@ -1,6 +1,6 @@
 import React from 'react';
-import {brush, check_box, image, pin} from "../../../core/google-icons";
-import {useOnClickOutside} from "../../../core/hooks/useOnClickOutside";
+import { brush, check_box, image, pin } from "../../../core/google-icons";
+import { useOnClickOutside } from "../../../core/hooks/useOnClickOutside";
 
 export const Header: React.FC = () => {
   const [isContentEditableFocus, setIsContentEditableFocus] = React.useState(false);
@@ -18,17 +18,23 @@ export const Header: React.FC = () => {
       {
         isContentEditableFocus &&
         <div className="rx-body-header-box-top-container">
+          <div className="rx-body-header-action-pinned"><div className="icon-container small">{pin}</div></div>
           <div className="rx-body-header-icon-separator"/>
-          <div className="rx-body-header-input title">
-            <div
-              contentEditable="true"
-              className="rx-text-box"
-              placeholder="Titolo"
-              onFocus={() => setIsContentEditableFocusHandler(true)}
-              // onBlur={() => setIsContentEditableFocusHandler(false)}
-            />
+
+          <div className="rx-body-header-input-container">
+            <div className="rx-body-header-input title">
+              <div
+                contentEditable="true"
+                className="rx-text-box"
+                placeholder="Titolo"
+                onFocus={() => setIsContentEditableFocusHandler(true)}
+                // onBlur={() => setIsContentEditableFocusHandler(false)}
+              />
+            </div>
           </div>
-          <div className="icon-container">{pin}</div>
+
+
+
         </div>
       }
 
@@ -53,9 +59,12 @@ export const Header: React.FC = () => {
 
       {
         isContentEditableFocus &&
-        <div>
-          actions
-        </div>
+        <React.Fragment>
+          <div>
+            actions
+          </div>
+          <div>Chiudi</div>
+        </React.Fragment>
       }
     </div>
   </div>

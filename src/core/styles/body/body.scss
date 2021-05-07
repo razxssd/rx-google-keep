@@ -1,5 +1,6 @@
 .rx-body-container {
   width: 100%;
+  overflow-x: hidden;
 
   .temp {
     width: 500px;
@@ -23,6 +24,10 @@
       border-radius: 8px;
       padding: 0 8px;
 
+      .rx-body-header-input-container {
+
+      }
+
       .rx-body-header-input {
         min-height: 32px;
         color: #202124;
@@ -34,6 +39,10 @@
         display: flex;
         align-items: center;
         width: 100%;
+        max-height: 500px;
+        overflow-y: auto;
+        padding-left: 15px;
+        padding-right: 15px;
 
         .rx-text-box {
           outline: none;
@@ -53,13 +62,23 @@
         }
       }
 
+      .rx-body-header-action-pinned {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+
       .rx-body-header-input.title {
         font-weight: 500;
+        display: block;
+        width: auto;
+        overflow: unset;
+        padding: 10px 15px;
       }
 
       .rx-body-header-icon-separator{
-        width: 37px;
-        height: 37px;
+        height: 52px;
+        width: 52px;
         float: right;
       }
 
@@ -74,9 +93,7 @@
       }
 
       .rx-body-header-box-top-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+        position: relative;
       }
     }
 
