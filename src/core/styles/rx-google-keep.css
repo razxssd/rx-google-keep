@@ -296,6 +296,9 @@ code {
 .rx-google-keep-wrapper .rx-body-container {
   width: 100%;
   overflow-x: hidden;
+  /* ---- grid ---- */
+  /* clearfix */
+  /* ---- grid-item ---- */
 }
 .rx-google-keep-wrapper .rx-body-container .temp {
   width: 500px;
@@ -414,8 +417,181 @@ code {
   flex-direction: column;
   align-items: normal;
 }
+.rx-google-keep-wrapper .rx-body-container .rx-body-content-container {
+  display: flex;
+  justify-content: center;
+}
+.rx-google-keep-wrapper .rx-body-container .rx-body-content-container .rx-body-content-container-flex {
+  width: 85%;
+  background-color: red;
+}
+.rx-google-keep-wrapper .rx-body-container .rx-body-content-container .rx-masonry-grid {
+  clear: both;
+  width: 100%;
+}
 .rx-google-keep-wrapper .rx-body-container .rx-body-content-container .rx-masonry-grid-item {
-  width: 240px;
+  width: 200px;
+}
+.rx-google-keep-wrapper .rx-body-container .grid {
+  background: #EEE;
+  max-width: 1200px;
+}
+.rx-google-keep-wrapper .rx-body-container .grid:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.rx-google-keep-wrapper .rx-body-container .grid-item {
+  width: 160px;
+  height: 120px;
+  float: left;
+  background: #D26;
+  border: 2px solid #333;
+  border-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  display: inline-block;
+}
+.rx-google-keep-wrapper .rx-body-container .grid-item--width2 {
+  width: 320px;
+}
+.rx-google-keep-wrapper .rx-body-container .grid-item--width3 {
+  width: 480px;
+}
+.rx-google-keep-wrapper .rx-body-container .grid-item--width4 {
+  width: 640px;
+}
+.rx-google-keep-wrapper .rx-body-container .grid-item--height2 {
+  height: 200px;
+}
+.rx-google-keep-wrapper .rx-body-container .grid-item--height3 {
+  height: 260px;
+}
+.rx-google-keep-wrapper .rx-body-container .grid-item--height4 {
+  height: 360px;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns {
+  columns: 6 200px;
+  column-gap: 1rem;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div {
+  width: 150px;
+  background: #EC985A;
+  color: white;
+  margin: 0 1rem 1rem 0;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-family: system-ui;
+  font-weight: 900;
+  font-size: 2rem;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(1) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(2) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(3) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(4) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(5) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(6) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(7) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(8) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(9) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(10) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(11) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(12) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(13) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(14) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(15) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(16) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(17) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(18) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(19) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(20) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(21) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(22) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(23) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(24) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(25) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(26) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(27) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(28) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(29) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(30) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(31) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(32) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(33) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(34) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(35) {
+  height: auto;
+}
+.rx-google-keep-wrapper .rx-body-container .masonry-with-columns div:nth-child(36) {
+  height: auto;
 }
 @media (max-width: 1024px) {
   .rx-google-keep-wrapper .rx-body-container .rx-body-header-container {
