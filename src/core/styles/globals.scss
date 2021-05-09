@@ -117,3 +117,23 @@
     background-color: rgba(95,99,104,0.039);
   }
 }
+
+.rx-card {
+  border: 1px solid transparent;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-transition-duration: .218s;
+  transition-duration: .218s;
+  -webkit-transition-property: background,border,opacity,-webkit-box-shadow,-webkit-transform;
+  transition-property: background,border,opacity,box-shadow,transform;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  background-color: #fff;
+  border-color: #e0e0e0;
+  // width: 240px;
+  margin: 8px;
+}

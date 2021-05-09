@@ -1,18 +1,137 @@
-/* Error: Undefined variable.
- *    ,
- * 48 |             color: $gray_150;
- *    |                    ^^^^^^^^^
- *    '
- *   body.scss 48:20  @import
- *   index.scss 1:9   root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a    \2577 \a 48 \2502              color: $gray_150;\d\a    \2502                     ^^^^^^^^^\a    \2575 \a   body.scss 48:20  @import\a   index.scss 1:9   root stylesheet";
+.rx-body-container {
+  width: 100%;
+  overflow-x: hidden;
 }
+.rx-body-container .temp {
+  width: 500px;
+  height: 500px;
+  background-color: green;
+}
+.rx-body-container .rx-body-header-container {
+  margin: 32px 22% 16px 22%;
+  position: relative;
+}
+.rx-body-container .rx-body-header-container .rx-body-header-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  max-height: 500px;
+}
+.rx-body-container .rx-body-header-container .rx-body-header-box .rx-body-header-input {
+  min-height: 32px;
+  color: #202124;
+  letter-spacing: 0.01428571em;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  display: flex;
+  align-items: center;
+  max-height: 500px;
+  overflow-y: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.rx-body-container .rx-body-header-container .rx-body-header-box .rx-body-header-input .rx-text-box {
+  outline: none;
+  user-select: text;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  width: 100%;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+}
+.rx-body-container .rx-body-header-container .rx-body-header-box .rx-body-header-input .rx-text-box:empty:before {
+  content: attr(placeholder);
+  color: #80868b;
+  font-size: 0.9rem;
+  cursor: text;
+  font-weight: 400;
+}
+.rx-body-container .rx-body-header-container .rx-body-header-box .rx-body-header-input .rx-text-box:empty:focus::before {
+  content: attr(placeholder);
+}
+.rx-body-container .rx-body-header-container .rx-body-header-box .rx-body-header-action-pinned {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.rx-body-container .rx-body-header-container .rx-body-header-box .rx-body-header-input.title {
+  font-weight: 500;
+  display: block;
+  width: auto;
+  overflow: unset;
+  padding: 10px 15px;
+  padding-top: 15px;
+}
+.rx-body-container .rx-body-header-container .rx-body-header-box .rx-body-header-icon-separator {
+  height: 52px;
+  width: 52px;
+  float: right;
+}
+.rx-body-container .rx-body-header-container .rx-body-header-box .rx-body-header-actions {
+  display: flex;
+  flex-direction: row;
+}
+.rx-body-container .rx-body-header-container .rx-body-header-box .rx-body-header-actions .icon-container {
+  height: 42px;
+  width: 42px;
+}
+.rx-body-container .rx-body-header-container .rx-body-header-box .rx-body-header-box-top-container {
+  position: relative;
+  -webkit-transition: background-color 0.218s ease-in-out, box-shadow 0.218s ease-in-out;
+  transition: background-color 0.218s ease-in-out, box-shadow 0.218s ease-in-out;
+}
+.rx-body-container .rx-body-header-container .rx-body-header-box .rx-body-header-box-top-container.shadow {
+  -webkit-box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.rx-body-container .rx-body-header-container .rx-body-header-box .rx-body-header-footer {
+  -webkit-transition: background-color 0.218s ease-in-out, box-shadow 0.218s ease-in-out;
+  transition: background-color 0.218s ease-in-out, box-shadow 0.218s ease-in-out;
+  display: flex;
+  padding: 5px 5px;
+}
+.rx-body-container .rx-body-header-container .rx-body-header-box .rx-body-header-footer .rx-body-header-footer-actions {
+  display: flex;
+  justify-content: space-between;
+  width: 68%;
+}
+.rx-body-container .rx-body-header-container .rx-body-header-box .rx-body-header-footer .rx-body-header-footer-button {
+  margin-left: auto;
+}
+.rx-body-container .rx-body-header-container .rx-body-header-box .rx-body-header-footer.shadow {
+  -webkit-box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.rx-body-container .rx-body-header-container .rx-body-header-box.open {
+  flex-direction: column;
+  align-items: normal;
+}
+.rx-body-container .rx-body-content-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.rx-body-container .rx-body-content-container .rx-masonry-grid-item {
+  width: 240px;
+}
+
+@media (max-width: 1024px) {
+  .rx-body-container .rx-body-header-container {
+    margin: 32px 3% 16px 3%;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
