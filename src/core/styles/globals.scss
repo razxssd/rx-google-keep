@@ -5,17 +5,20 @@
   width: 48px;
   display: flex;
   align-items: center;
+  justify-content: center;
 
   svg {
-    border-radius: 50%;
+    // border-radius: 50%;
     padding: 8px;
   }
 
   &:hover {
     opacity: .87;
+    border-radius: 50%;
+    background-color: rgba(60, 64, 67, 0.08);
 
     svg {
-      background-color: $gray;
+      //background-color: $gray;
     }
 
   }
@@ -24,6 +27,10 @@
 .icon-container.small {
   height: 38px;
   width: 38px;
+}
+.icon-container.xs-small {
+  height: 32px;
+  width: 32px;
 }
 
 .scale-to-right {
@@ -126,14 +133,16 @@
   position: relative;
   -webkit-border-radius: 8px;
   border-radius: 8px;
-  -webkit-transition-duration: .218s;
-  transition-duration: .218s;
-  -webkit-transition-property: background,border,opacity,-webkit-box-shadow,-webkit-transform;
+ -webkit-transition-duration: .218s;
+ transition-duration: .218s;
+ -webkit-transition-property: background,border,opacity,-webkit-box-shadow,-webkit-transform;
   transition-property: background,border,opacity,box-shadow,transform;
   -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
   background-color: #fff;
   border-color: #e0e0e0;
-  // width: 240px;
-  margin: 8px;
+
+  &:hover {
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+  }
 }

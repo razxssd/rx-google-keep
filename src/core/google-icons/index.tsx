@@ -11,7 +11,7 @@ export const settings = <svg xmlns="http://www.w3.org/2000/svg" width="24" heigh
 
 export const list = <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <g id="list_view_24px" stroke="none" fill="none">
-    <polygon id="bounds" fill="#FFFFFF" points="0 0 24 0 24 24 0 24"></polygon>
+    <polygon id="bounds" points="0 0 24 0 24 24 0 24"></polygon>
     <path d="M20,9 L4,9 L4,5 L20,5 L20,9 Z M20,19 L4,19 L4,15 L20,15 L20,19 Z M3,3 C2.45,3 2,3.45 2,4 L2,10 C2,10.55 2.45,11 3,11 L21,11 C21.55,11 22,10.55 22,10 L22,4 C22,3.45 21.55,3 21,3 L3,3 Z M3,13 C2.45,13 2,13.45 2,14 L2,20 C2,20.55 2.45,21 3,21 L21,21 C21.55,21 22,20.55 22,20 L22,14 C22,13.45 21.55,13 21,13 L3,13 Z" id="icon" fill="#000000"></path>
   </g>
 </svg>
@@ -60,3 +60,7 @@ export const redo = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="2
   <path d="M14.1 8H7.83l2.59-2.59L9 4 4 9l5 5 1.41-1.41L7.83 10h6.27c2.15 0 3.9 1.57 3.9 3.5S16.25 17 14.1 17H7v2h7.1c3.25 0 5.9-2.47 5.9-5.5S17.35 8 14.1 8z"/>
 </svg>
 
+export const pin_full = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <path fill="none" d="M0 0h24v24H0z"/>
+  <path fill="#000" d="M17 4a2 2 0 0 0-2-2H9c-1.1 0-2 .9-2 2v7l-2 3v2h6v5l1 1 1-1v-5h6v-2l-2-3V4z"/>
+</svg>

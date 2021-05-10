@@ -1,229 +1,119 @@
 import React from 'react';
 import {Header} from "./components/Header";
 import Masonry from "masonry-layout";
+import { Provider as ReduxProvider, useSelector } from "react-redux";
+import { add_alert, archive, image, more_vert, palette, persona_add_alt, pin, pin_full } from "../../core/google-icons";
+import { getBoardNotes } from "../../store/selectors/board.selector";
+import { IBoardNote } from "../../core/interfaces/IBoardState";
 
 export const Body: React.FC = () => {
+  const notes = useSelector(getBoardNotes);
 
   React.useEffect(() => {
-    var elem = document.querySelector('.rx-masonry-grid');
-    if (elem)
-      var msnry = new Masonry(elem, {
+    var elem_2 = document.querySelector('.rx-masonry-grid');
+    console.log("elem_2: ", elem_2)
+    if (elem_2)
+      new Masonry(elem_2, {
         // options
         itemSelector: '.rx-masonry-grid-item',
-        columnWidth: 200
+        columnWidth: 210
       });
+  }, [notes])
 
-    var elem_2 = document.querySelector('.grid');
-    if (elem_2)
-      var msnry_2 = new Masonry(elem_2, {
-        // options
-        itemSelector: '.grid-item',
-        columnWidth: 200
-      });
-  }, []);
-
+  const noop = (e: any) => {
+    e.preventDefault();
+    return false;
+  };
 
   return <div className='rx-body-container'>
     <Header/>
 
     <div className="rx-body-content-container">
-      <div className="rx-body-content-container-flex">
-        <div className="rx-masonry-grid">
 
+      <div className="rx-body-content-title">Appuntate</div>
+      <div className="rx-masonry-grid">
+        {
+          notes.map((note: IBoardNote, i: number) => {
+            return <div className="rx-masonry-grid-item rx-card" key={i}>
+              <div className="rx-grid-content-header">
+                <div className="rx-grid-content-header-title">{note.title}</div>
+                <div className="rx-grid-content-header-icon"><div className="icon-container xs-small">{pin_full}</div></div>
+              </div>
 
-          <div className="rx-masonry-grid-item">
-            <div className="rx-card">
-              Card
-              lorem ipsum lorem dolorem lorem ipsum lorem dolorem
-              lorem ipsum lorem dolorem
-              lorem ipsum lorem doloremlorem ipsum lorem dolorem
-              lorem ipsum lorem dolorem
-              lorem ipsum lorem dolorem
-              lorem ipsum lorem dolorem lorem ipsum lorem dolorem
-              lorem ipsum lorem dolorem
-              lorem ipsum lorem doloremlorem ipsum lorem dolorem
-              lorem ipsum lorem dolorem
-              lorem ipsum lorem dolorem
-              lorem ipsum lorem dolorem lorem ipsum lorem dolorem
-              lorem ipsum lorem dolorem
-              lorem ipsum lorem doloremlorem ipsum lorem dolorem
-              lorem ipsum lorem dolorem
-              lorem ipsum lorem dolorem
+              <div className="rx-grid-content-body">
+                <div
+                  key={i}
+                  id={i.toString()}
+                  className="rx-text-box"
+                  contentEditable={true}
+                  onCut={noop}
+                  onCopy={noop}
+                  onPaste={noop}
+                  onKeyDown={noop}
+                >
+                  {note.content}
+                </div>
+              </div>
+
+              <div className="rx-grid-content-footer">
+                <div className="icon-container xs-small">{add_alert}</div>
+                <div className="icon-container xs-small">{persona_add_alt}</div>
+                <div className="icon-container xs-small">{palette}</div>
+                <div className="icon-container xs-small">{image}</div>
+                <div className="icon-container xs-small">{archive}</div>
+                <div className="icon-container xs-small">{more_vert}</div>
+              </div>
+            </div>
+          })
+        }
+        <div className="rx-masonry-grid-item rx-card">
+          <div className="rx-grid-content-header">
+            <div className="rx-grid-content-header-title">Title</div>
+            <div className="rx-grid-content-header-icon"><div className="icon-container xs-small">{pin_full}</div></div>
+          </div>
+
+          <div className="rx-grid-content-body">
+            <div
+              className="rx-text-box"
+              contentEditable={true}
+              onCut={noop}
+              onCopy={noop}
+              onPaste={noop}
+              onKeyDown={noop}
+              >
+              Ciao, prima nota da Edu!
             </div>
           </div>
-          <div className="rx-masonry-grid-item">
-            <div className="rx-card">Card lorem ipsum
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-            </div>
-          </div>
-          <div className="rx-masonry-grid-item">
-            <div className="rx-card">adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-            </div>
-          </div>
-          <div className="rx-masonry-grid-item">
-            <div className="rx-card">adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-            </div>
-          </div>
-          <div className="rx-masonry-grid-item">
-            <div className="rx-card">
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-            </div>
-          </div>
-          <div className="rx-masonry-grid-item">
-            <div className="rx-card">
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-            </div>
-          </div>
-          <div className="rx-masonry-grid-item">
-            <div className="rx-card">
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-            </div>
-          </div>
-          <div className="rx-masonry-grid-item">
-            <div className="rx-card">
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-            </div>
-          </div>
-          <div className="rx-masonry-grid-item">
-            <div className="rx-card">
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-            </div>
-          </div>
-          <div className="rx-masonry-grid-item">
-            <div className="rx-card">adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-            </div>
-          </div>
-          <div className="rx-masonry-grid-item">
-            <div className="rx-card">adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-              adsdasdad askdas daksd ajsd ajsdk asdj
-            </div>
+
+          <div className="rx-grid-content-footer">
+            <div className="icon-container xs-small">{add_alert}</div>
+            <div className="icon-container xs-small">{persona_add_alt}</div>
+            <div className="icon-container xs-small">{palette}</div>
+            <div className="icon-container xs-small">{image}</div>
+            <div className="icon-container xs-small">{archive}</div>
+            <div className="icon-container xs-small">{more_vert}</div>
           </div>
         </div>
+        <div className="rx-masonry-grid-item rx-card rx-masonry-grid-item--height3"></div>
+        <div className="rx-masonry-grid-item rx-card rx-masonry-grid-item--height2"></div>
+        <div className="rx-masonry-grid-item rx-card"></div>
+        <div className="rx-masonry-grid-item rx-card"></div>
+        <div className="rx-masonry-grid-item rx-card rx-masonry-grid-item--height2"></div>
+        <div className="rx-masonry-grid-item rx-card"></div>
+        <div className="rx-masonry-grid-item rx-card rx-masonry-grid-item--height2"></div>
+        <div className="rx-masonry-grid-item rx-card"></div>
+        <div className="rx-masonry-grid-item rx-card rx-masonry-grid-item--height2"></div>
+        <div className="rx-masonry-grid-item rx-card"></div>
+        <div className="rx-masonry-grid-item rx-card rx-masonry-grid-item--height2"></div>
+        <div className="rx-masonry-grid-item rx-card"></div>
+        <div className="rx-masonry-grid-item rx-card"></div>
+        <div className="rx-masonry-grid-item rx-card rx-masonry-grid-item--height3"></div>
+        <div className="rx-masonry-grid-item rx-card rx-masonry-grid-item--height2"></div>
+        <div className="rx-masonry-grid-item rx-card"></div>
+        <div className="rx-masonry-grid-item rx-card"></div>
+        <div className="rx-masonry-grid-item rx-card rx-masonry-grid-item--height2"></div>
       </div>
-    </div>
 
-    <h1>Masonry - columnWidth</h1>
-    <div className="grid">
-      <div className="grid-item"></div>
-      <div className="grid-item grid-item--width2 grid-item--height2"></div>
-      <div className="grid-item grid-item--height3"></div>
-      <div className="grid-item grid-item--height2"></div>
-      <div className="grid-item grid-item--width3"></div>
-      <div className="grid-item"></div>
-      <div className="grid-item"></div>
-      <div className="grid-item grid-item--height2"></div>
-      <div className="grid-item grid-item--width2 grid-item--height3"></div>
-      <div className="grid-item"></div>
-      <div className="grid-item grid-item--height2"></div>
-      <div className="grid-item"></div>
-      <div className="grid-item grid-item--width2 grid-item--height2"></div>
-      <div className="grid-item grid-item--width2"></div>
-      <div className="grid-item"></div>
-      <div className="grid-item grid-item--height2"></div>
-      <div className="grid-item"></div>
-      <div className="grid-item"></div>
-      <div className="grid-item grid-item--height3"></div>
-      <div className="grid-item grid-item--height2"></div>
-      <div className="grid-item"></div>
-      <div className="grid-item"></div>
-      <div className="grid-item grid-item--height2"></div>
-    </div>
-
-    <div>
-      <div className="masonry-with-columns">
-        <div>
-          1 aldsladsadlsa sadksalksd asd lans dsb
-          1 aldsladsadlsa sadksalksd asd lans dsb
-          1 aldsladsadlsa sadksalksd asd lans dsb
-        </div>
-        <div>
-          2 dakdjslads alkdsbadsajbsd a dslhads
-          2 dakdjslads alkdsbadsajbsd a dslhads
-          2 dakdjslads alkdsbadsajbsd a dslhads
-          2 dakdjslads alkdsbadsajbsd a dslhads
-          2 dakdjslads alkdsbadsajbsd a dslhads
-          2 dakdjslads alkdsbadsajbsd a dslhads
-          2 dakdjslads alkdsbadsajbsd a dslhads
-        </div>
-        <div>
-          3 2 dakdjslads alkdsbadsajbsd a dslhads
-          2 dakdjslads alkdsbadsajbsd a dslhads
-        </div>
-        <div>
-          4
-          1 aldsladsadlsa sadksalksd asd lans dsb
-          1 aldsladsadlsa sadksalksd asd lans dsb
-        </div>
-        <div>
-          5
-        </div>
-        <div>
-          6
-        </div>
-        <div>
-          7v2 dakdjslads alkdsbadsajbsd a dslhads
-          2 dakdjslads alkdsbadsajbsd a dslhads
-          2 dakdjslads alkdsbadsajbsd a dslhads
-          2 dakdjslads alkdsbadsajbsd a dslhads
-        </div>
-        <div>
-          8
-        </div>
-        <div>
-          9
-        </div>
-        <div>
-          10
-        </div>
-        <div>
-          11
-        </div>
-        <div>
-          12
-        </div>
-        <div>
-          13
-        </div>
-        <div>
-          14
-        </div>
-        <div>
-          15
-        </div>
-      </div>
     </div>
 
   </div>

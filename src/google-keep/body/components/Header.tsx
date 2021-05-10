@@ -1,4 +1,4 @@
-import React, { FocusEventHandler } from 'react';
+import React  from 'react';
 import {
   add_alert,
   archive,
@@ -11,18 +11,32 @@ import {
   pin, redo
 } from "../../../core/google-icons";
 import { useOnClickOutside } from "../../../core/hooks/useOnClickOutside";
-import { setNavbarIsBodyAtTop } from "../../../store/reducers/layout.store";
+import {addNote} from "../../../store/reducers/board.store";
+import { IBoardNote } from "../../../core/interfaces/IBoardState";
+import { useDispatch } from "react-redux";
 
 const MAX_LENGTH_CHAR_CONTENT = 999;
 
 export const Header: React.FC = () => {
   const [isContentEditableFocus, setIsContentEditableFocus] = React.useState(false);
+  const dispatch = useDispatch();
   const bodyHeaderInputRef = React.useRef<HTMLDivElement>(null);
   const bodyHeaderInputTitleRef = React.useRef<HTMLDivElement>(null);
 
   const setIsContentEditableFocusHandler = React.useCallback((value) => {
+    if (bodyHeaderInputRef?.current?.innerText.trim() && !value) {
+      const noteToAdd: IBoardNote = {
+        title: bodyHeaderInputTitleRef?.current?.innerText.trim(),
+        content: bodyHeaderInputRef?.current?.innerText.trim()
+      }
+      dispatch(addNote(noteToAdd))
+      bodyHeaderInputRef.current.innerText = "";
+      if (bodyHeaderInputTitleRef.current)
+      bodyHeaderInputTitleRef.current.innerText = "";
+    }
+
     setIsContentEditableFocus(value);
-  }, []);
+  }, [dispatch]);
 
   const headerBoxRef = React.useRef<any | null>(null);
   useOnClickOutside(headerBoxRef, () => setIsContentEditableFocusHandler(false));
