@@ -1,29 +1,15 @@
 import React from 'react';
-import {Header} from "./components/Header";
-import Masonry from "masonry-layout";
-import { Provider as ReduxProvider, useSelector } from "react-redux";
-import { add_alert, archive, image, more_vert, palette, persona_add_alt, pin, pin_full } from "../../core/google-icons";
-import { getBoardNotes } from "../../store/selectors/board.selector";
+import { Header } from "./components/Header";
+import { add_alert, archive, image, more_vert, palette, persona_add_alt, pin_full } from "../../core/google-icons";
 import { IBoardNote } from "../../core/interfaces/IBoardState";
+import { useBody } from "./useBody";
 
 export const Body: React.FC = () => {
-  const notes = useSelector(getBoardNotes);
-
-  React.useEffect(() => {
-    var elem_2 = document.querySelector('.rx-masonry-grid');
-    console.log("elem_2: ", elem_2)
-    if (elem_2)
-      new Masonry(elem_2, {
-        // options
-        itemSelector: '.rx-masonry-grid-item',
-        columnWidth: 210
-      });
-  }, [notes])
-
-  const noop = (e: any) => {
-    e.preventDefault();
-    return false;
-  };
+ const {
+   notes,
+   noop,
+   onCardOpenHandler
+ } = useBody();
 
   return <div className='rx-body-container'>
     <Header/>
@@ -34,10 +20,12 @@ export const Body: React.FC = () => {
       <div className="rx-masonry-grid">
         {
           notes.map((note: IBoardNote, i: number) => {
-            return <div className="rx-masonry-grid-item rx-card" key={i}>
+            return <div className="rx-masonry-grid-item rx-card" key={i} onClick={() => onCardOpenHandler(note)}>
               <div className="rx-grid-content-header">
                 <div className="rx-grid-content-header-title">{note.title}</div>
-                <div className="rx-grid-content-header-icon"><div className="icon-container xs-small">{pin_full}</div></div>
+                <div className="rx-grid-content-header-icon">
+                  <div className="icon-container xs-small">{pin_full}</div>
+                </div>
               </div>
 
               <div className="rx-grid-content-body">
@@ -61,7 +49,9 @@ export const Body: React.FC = () => {
                 <div className="icon-container xs-small">{palette}</div>
                 <div className="icon-container xs-small">{image}</div>
                 <div className="icon-container xs-small">{archive}</div>
-                <div className="icon-container xs-small">{more_vert}</div>
+                <div className="icon-container xs-small">{more_vert}
+                  <div className="dropdown-box">Delete</div>
+                </div>
               </div>
             </div>
           })
@@ -69,7 +59,9 @@ export const Body: React.FC = () => {
         <div className="rx-masonry-grid-item rx-card">
           <div className="rx-grid-content-header">
             <div className="rx-grid-content-header-title">Title</div>
-            <div className="rx-grid-content-header-icon"><div className="icon-container xs-small">{pin_full}</div></div>
+            <div className="rx-grid-content-header-icon">
+              <div className="icon-container xs-small">{pin_full}</div>
+            </div>
           </div>
 
           <div className="rx-grid-content-body">
@@ -80,7 +72,7 @@ export const Body: React.FC = () => {
               onCopy={noop}
               onPaste={noop}
               onKeyDown={noop}
-              >
+            >
               Ciao, prima nota da Edu!
             </div>
           </div>

@@ -3,6 +3,7 @@ import {Navbar, Sidenav} from "../index";
 import { useDispatch, useSelector } from "react-redux";
 import { getLayoutNavbarIsBodyAtTop } from "../../store/selectors/layout.selector";
 import { setNavbarIsBodyAtTop } from "../../store/reducers/layout.store";
+import { OpenCard } from "../open-card/OpenCard";
 
 export const Layout: React.FC = ({children}) => {
   const dispatch = useDispatch();
@@ -30,5 +31,7 @@ export const Layout: React.FC = ({children}) => {
         <div className="rx-google-keep-content-left-placeholder"/><Sidenav /></div>
       {children}
     </div>
+
+    <OpenCard />
   </div>
 };
