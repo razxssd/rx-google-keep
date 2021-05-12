@@ -1,6 +1,5 @@
 .icon-container {
   cursor: pointer;
-  opacity: 0.54;
   height: 48px;
   width: 48px;
   display: flex;
@@ -10,12 +9,16 @@
 }
 .icon-container svg {
   padding: 8px;
+  opacity: 0.54;
 }
 .icon-container:hover {
-  opacity: 0.87;
   border-radius: 50%;
   background-color: rgba(60, 64, 67, 0.08);
 }
+.icon-container:hover svg {
+  opacity: 0.87;
+}
+
 .icon-container.small {
   height: 38px;
   width: 38px;
@@ -115,7 +118,6 @@
   border: 1px solid transparent;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  overflow: hidden;
   position: relative;
   -webkit-border-radius: 8px;
   border-radius: 8px;
@@ -127,17 +129,41 @@
   transition-timing-function: ease-in;
   background-color: #fff;
   border-color: #e0e0e0;
+  z-index: 5;
 }
 .rx-card:hover {
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  z-index: 10;
 }
 
 .dropdown-box {
   position: absolute;
-  top: 0;
+  top: 27px;
   min-width: 100px;
   height: auto;
-  background-color: red;
+  background-color: #fff;
+  border-width: 0;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
+  -webkit-border-radius: 4px;
+  left: 0;
+}
+.dropdown-box .dropdown-box-item {
+  border: 1px solid transparent;
+  letter-spacing: 0.01428571em;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  padding: 5px 10px 5px 17px;
+  position: relative;
+  color: #333;
+  cursor: pointer;
+  list-style: none;
+  margin: 0;
+  white-space: nowrap;
+}
+.dropdown-box .dropdown-box-item:hover {
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
 body {
@@ -171,11 +197,11 @@ code {
   width: 100%;
 }
 .rx-google-keep-wrapper .rx-google-keep-content .rx-google-keep-content-left {
-  width: 280px;
+  width: 260px;
 }
 .rx-google-keep-wrapper .rx-google-keep-content .rx-google-keep-content-left-placeholder {
   background: transparent;
-  min-width: 280px;
+  min-width: 260px;
   position: relative;
 }
 .rx-google-keep-wrapper .full-width {
@@ -251,7 +277,7 @@ code {
   left: 0;
   background-color: var(--white);
   padding: 8px 0;
-  width: 280px;
+  width: 260px;
   display: flex;
   flex-direction: column;
   height: calc(100% - 58px);
@@ -317,8 +343,8 @@ code {
   background-color: green;
 }
 .rx-google-keep-wrapper .rx-body-container .rx-body-content-container {
-  margin-left: 5rem;
-  margin-right: 5rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
   margin-top: 3rem;
   /* clearfix */
   /* ---- grid-item ---- */
@@ -397,7 +423,7 @@ code {
   cursor: default;
 }
 .rx-google-keep-wrapper .rx-body-container .rx-body-content-container .rx-masonry-grid-item:hover .rx-grid-content-footer, .rx-google-keep-wrapper .rx-body-container .rx-body-content-container .rx-masonry-grid-item:hover .rx-grid-content-header-icon {
-  opacity: 0.87;
+  opacity: 1;
 }
 .rx-google-keep-wrapper .rx-body-container .rx-body-content-container .rx-masonry-grid-item--height2 {
   height: 200px;
@@ -524,6 +550,10 @@ code {
 @media (max-width: 1024px) {
   .rx-google-keep-wrapper .rx-body-header-container {
     margin: 32px 3% 16px 3%;
+  }
+  .rx-google-keep-wrapper .rx-body-content-container {
+    margin-left: 1.5rem !important;
+    margin-right: 1.5rem !important;
   }
 }
 .rx-google-keep-wrapper .rx-open-card-wrapper {
