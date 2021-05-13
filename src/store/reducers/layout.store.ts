@@ -17,6 +17,7 @@ const initialStateValue: ILayoutStoreProps = {
   openCard: {
     isCardOpen: false,
     note: {
+      id: '',
       content: ''
     }
   }
@@ -40,6 +41,9 @@ export const layoutStore = createSlice({
     },
     setIsCardOpen(state, action: PayloadAction<boolean>): ILayoutStoreProps {
       return {...state, openCard: {...state.openCard, isCardOpen: action.payload}}
+    },
+    updateOpenCardNote(state, action: PayloadAction<IBoardNote>): ILayoutStoreProps {
+     return {...state, openCard: {...state.openCard, note: {...action.payload}}};
     }
   }
 });
@@ -50,5 +54,6 @@ export const {
   setNavbarIsBodyAtTop,
   setNavbarTitle,
   openCard,
-  setIsCardOpen
+  setIsCardOpen,
+  updateOpenCardNote
 } = layoutStore.actions;

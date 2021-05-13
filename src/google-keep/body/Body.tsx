@@ -4,6 +4,8 @@ import { add_alert, archive, image, more_vert, palette, persona_add_alt, pin_ful
 import { IBoardNote } from "../../core/interfaces/IBoardState";
 import { useBody } from "./useBody";
 import { useOnClickOutside } from "../../core/hooks/useOnClickOutside";
+import { useDispatch } from "react-redux";
+import {deleteNote} from "../../store/reducers/board.store";
 
 export const Body: React.FC = () => {
   const {
@@ -50,12 +52,14 @@ export const Body: React.FC = () => {
                 <div className="icon-container xs-small">{palette}</div>
                 <div className="icon-container xs-small">{image}</div>
                 <div className="icon-container xs-small">{archive}</div>
-                <MoreActions />
+                <MoreActions noteId={note.id}/>
               </div>
             </div>
           })
         }
-        <div className="rx-masonry-grid-item rx-card">
+
+        {/*
+         <div className="rx-masonry-grid-item rx-card">
           <div className="rx-grid-content-header">
             <div className="rx-grid-content-header-title">Title</div>
             <div className="rx-grid-content-header-icon">
@@ -103,6 +107,8 @@ export const Body: React.FC = () => {
         <div className="rx-masonry-grid-item rx-card"></div>
         <div className="rx-masonry-grid-item rx-card"></div>
         <div className="rx-masonry-grid-item rx-card rx-masonry-grid-item--height2"></div>
+        */}
+
       </div>
 
     </div>
@@ -110,17 +116,26 @@ export const Body: React.FC = () => {
   </div>
 };
 
+interface IMoreActionsProps {
+  noteId: string;
+}
 
-export const MoreActions = () => {
+export const MoreActions: React.FC<IMoreActionsProps> = ({noteId}) => {
   const [isVisibleDropdown, setIsVisibleDropdown] = React.useState(false);
+  const dispatch = useDispatch();
   const boxRef = React.useRef<any | null>(null);
   useOnClickOutside(boxRef, () => setIsVisibleDropdown(false));
+
+  const deleteNoteHandler = () => {
+    dispatch(deleteNote(noteId))
+  }
+
   return  <div className="icon-container xs-small" onClick={(e) => {setIsVisibleDropdown(true)}}>{more_vert}
     {
       isVisibleDropdown &&
       <div ref={boxRef} className="dropdown-box">
-        <div className="dropdown-box-item">
-          Elimina note
+        <div className="dropdown-box-item" onClick={deleteNoteHandler}>
+          Elimina nota
         </div>
         <div className="dropdown-box-item">
           Aggiungi etichetta

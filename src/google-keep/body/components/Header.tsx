@@ -26,6 +26,7 @@ export const Header: React.FC = () => {
   const setIsContentEditableFocusHandler = React.useCallback((value) => {
     if (bodyHeaderInputRef?.current?.innerText.trim() && !value) {
       const noteToAdd: IBoardNote = {
+        id: new Date().toISOString(),
         title: bodyHeaderInputTitleRef?.current?.innerText.trim(),
         content: bodyHeaderInputRef?.current?.innerText.trim()
       }

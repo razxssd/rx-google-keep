@@ -3,6 +3,7 @@ export interface IBoardStoreProps {
 }
 
 export interface IBoardNote {
-    title?: string;
-    content: string;
+  id: string;
+  title?: string;
+  content: string;
 }

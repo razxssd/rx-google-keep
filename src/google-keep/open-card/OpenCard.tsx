@@ -13,92 +13,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { setIsCardOpen } from "../../store/reducers/layout.store";
 import { useOnClickOutside } from "../../core/hooks/useOnClickOutside";
 import { getLayoutCardOpen } from "../../store/selectors/layout.selector";
+import { useOpenCard } from "./useOpenCard";
 
-const MAX_LENGTH_CHAR_CONTENT = '';
+
 
 export const OpenCard: React.FC = () => {
-  const [isContentEditableFocus, setIsContentEditableFocus] = React.useState(false);
-  const dispatch = useDispatch();
-  const bodyHeaderInputRef = React.useRef<HTMLDivElement>(null);
-  const bodyHeaderInputTitleRef = React.useRef<HTMLDivElement>(null);
-  const cardOpenState = useSelector(getLayoutCardOpen)
 
-  const onCloseHandler = React.useCallback(() => {
-    dispatch(setIsCardOpen(false))
-  }, [dispatch])
-
-  const setIsContentEditableFocusHandler = React.useCallback((value) => {
-    if (bodyHeaderInputRef?.current?.innerText.trim() && !value) {
-      bodyHeaderInputRef.current.innerText = "";
-      if (bodyHeaderInputTitleRef.current)
-        bodyHeaderInputTitleRef.current.innerText = "";
-    }
-
-    setIsContentEditableFocus(value);
-    if (!value)
-      onCloseHandler();
-  }, [onCloseHandler]);
-
-  const headerBoxRef = React.useRef<any | null>(null);
-  useOnClickOutside(headerBoxRef, () => setIsContentEditableFocusHandler(false));
-
-  const [isBodyAtTop, setIsBodyAtTop] = React.useState(true);
-  const [isBodyAtBottom, setIsBodyAtBottom] = React.useState(true);
-
-  const setIsBodyAtTopHandler = React.useCallback((value) => {
-    setIsBodyAtTop(value)
-  }, []);
-  const setIsBodyAtBottomHandler = React.useCallback((value) => {
-    setIsBodyAtBottom(value)
-  }, []);
-
-  const onScrollBodyHandler = (e: any) => {
-    const st = e.currentTarget.scrollTop;
-    const sh = e.currentTarget.scrollHeight;
-    const ht = e.currentTarget.offsetHeight;
-    if (st === 0) {
-      setIsBodyAtTopHandler(true)
-    } else if ((ht === 0) || (Math.ceil(st) === (sh - ht)) || (Math.round(st) === (sh - ht)) || (Math.floor(st) === (sh - ht))) {
-      setIsBodyAtBottomHandler(true)
-    } else {
-      if (isBodyAtTop)
-        setIsBodyAtTopHandler(false)
-      if (isBodyAtBottom)
-        setIsBodyAtBottomHandler(false)
-    }
-  }
-
-  const bodyHeaderInputContainerRef = React.useRef<HTMLDivElement>(null);
-  const onKeyDownHandler = React.useCallback((event: React.KeyboardEvent<HTMLDivElement>) => {
-    const target = (event.target) as HTMLElement;
-
-    if (event.code === "Backspace" && bodyHeaderInputContainerRef?.current?.scrollTop === 0) {
-      setIsBodyAtBottom(true)
-    }
-
-    if (event.code === "Backspace" && target.innerText.trim() === "" && bodyHeaderInputContainerRef.current) {
-
-    }
-  }, []);
-
-  const onKeyDownBodyHeaderInputTitleHandler = React.useCallback((event: React.KeyboardEvent<HTMLDivElement>) => {
-    const target = (event.target) as HTMLElement;
-
-    if (MAX_LENGTH_CHAR_CONTENT && (target.innerText.trim().length > MAX_LENGTH_CHAR_CONTENT) && event.code !== "Backspace")
-      event.preventDefault();
-
-    if ((event.keyCode === 13 && !event.shiftKey) || (event.code === "Enter" && !event.shiftKey)) {
-      bodyHeaderInputRef?.current?.focus({preventScroll: true})
-    }
-
-    if (event.code === "Backspace") {
-      console.log("target.innerText.trim(): ", target.innerText.trim())
-    }
-  }, []);
-
-  const onFocusBodyHeaderInputHandler = (e: any) => {
-    setIsContentEditableFocusHandler(true)
-  }
+  const {
+    cardOpenState,
+    isBodyAtTop,
+    headerBoxRef,
+    setIsContentEditableFocusHandler,
+    bodyHeaderInputContainerRef,
+    onScrollBodyHandler,
+    bodyHeaderInputTitleRef,
+    onKeyDownBodyHeaderInputTitleHandler,
+    onFocusBodyHeaderInputHandler,
+    onKeyDownHandler,
+    bodyHeaderInputRef,
+    onCloseHandler,
+    isBodyAtBottom
+  } = useOpenCard();
 
   return <React.Fragment>
     <div className={`rx-open-card-wrapper ${cardOpenState.isCardOpen ? 'open' : ''}`}/>
@@ -119,14 +54,12 @@ export const OpenCard: React.FC = () => {
                 className="rx-text-box"
                 placeholder="Titolo"
                 onFocus={() => setIsContentEditableFocusHandler(true)}
-                // onBlur={() => setIsContentEditableFocusHandler(false)}
                 ref={bodyHeaderInputTitleRef}
                 onKeyDown={onKeyDownBodyHeaderInputTitleHandler}
-              >{cardOpenState.note.title}</div>
+               />
             </div>
           </div>
         </div>
-
 
         <div className={`rx-body-header-input`}
              onScroll={onScrollBodyHandler}
@@ -140,10 +73,7 @@ export const OpenCard: React.FC = () => {
             onFocus={onFocusBodyHeaderInputHandler}
             ref={bodyHeaderInputRef}
             onKeyDown={onKeyDownHandler}
-
-          >
-            {cardOpenState.note.content}
-          </div>
+           />
         </div>
 
 
