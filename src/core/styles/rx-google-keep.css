@@ -336,6 +336,7 @@ code {
 .rx-google-keep-wrapper .rx-body-container {
   width: 100%;
   overflow-x: hidden;
+  min-height: calc(100vh - 58px);
 }
 .rx-google-keep-wrapper .rx-body-container .temp {
   width: 500px;
@@ -395,6 +396,26 @@ code {
   color: #202124;
   white-space: pre-wrap;
 }
+.rx-google-keep-wrapper .rx-body-container .rx-body-content-container .rx-grid-content-body .rx-overflow {
+  max-height: 300px;
+  --max-lines: 3;
+  position: relative;
+  overflow: hidden;
+}
+.rx-google-keep-wrapper .rx-body-container .rx-body-content-container .rx-grid-content-body .rx-overflow:before {
+  position: absolute;
+  content: "...";
+  bottom: 0;
+  right: 0;
+}
+.rx-google-keep-wrapper .rx-body-container .rx-body-content-container .rx-grid-content-body .rx-overflow:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 1rem;
+  height: 1rem;
+  background: white;
+}
 .rx-google-keep-wrapper .rx-body-container .rx-body-content-container .rx-grid-content-footer {
   display: flex;
   justify-content: center;
@@ -421,6 +442,7 @@ code {
   float: left;
   margin-bottom: 10px;
   cursor: default;
+  max-height: 540px;
 }
 .rx-google-keep-wrapper .rx-body-container .rx-body-content-container .rx-masonry-grid-item:hover .rx-grid-content-footer, .rx-google-keep-wrapper .rx-body-container .rx-body-content-container .rx-masonry-grid-item:hover .rx-grid-content-header-icon {
   opacity: 1;
@@ -587,6 +609,51 @@ code {
 }
 .rx-google-keep-wrapper .rx-open-card-container .rx-body-header-box {
   max-width: 80%;
+}
+.rx-google-keep-wrapper h3 {
+  font-size: 1.5em;
+  font-weight: 100;
+  letter-spacing: 1em;
+  text-shadow: 0px 0px 20px #ecff06;
+  color: #ecff06;
+  display: inline-block;
+}
+.rx-google-keep-wrapper .container {
+  font-size: 16px;
+  top: 40%;
+  left: 35%;
+  position: absolute;
+  color: #FFFFFF;
+  text-align: center;
+}
+.rx-google-keep-wrapper .bar {
+  height: 0.3em;
+  width: 30em;
+  border-radius: 10px;
+  background: transparent;
+  box-shadow: inset 0px 0px 8px #feefc3;
+  overflow: hidden;
+  padding: 5px;
+}
+.rx-google-keep-wrapper .progress {
+  height: inherit;
+  border-radius: inherit;
+  width: 0;
+  background: #ecff06;
+  animation: load 3s linear infinite;
+  animation-delay: 2s;
+}
+@keyframes load {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+    float: right;
+  }
 }
 
 .scrollbar::-webkit-scrollbar-corner {

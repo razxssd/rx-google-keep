@@ -21,6 +21,11 @@ const initialStateValue: IBoardStoreProps = {
       id: '4',
       title: 'Grid layout',
       content: 'The grid was made with the masonry grid layout. \n\nGive it a shot here: https://masonry.desandro.com/'
+    },
+    {
+      id: '5',
+      title: 'Other repos',
+      content: 'If you like this project, take a look at my Github: \n\n@razxssd'
     }
   ]
 }

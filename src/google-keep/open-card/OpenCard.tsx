@@ -52,7 +52,7 @@ export const OpenCard: React.FC = () => {
               <div
                 contentEditable="true"
                 className="rx-text-box"
-                placeholder="Titolo"
+                placeholder="Title"
                 onFocus={() => setIsContentEditableFocusHandler(true)}
                 ref={bodyHeaderInputTitleRef}
                 onKeyDown={onKeyDownBodyHeaderInputTitleHandler}
@@ -69,7 +69,7 @@ export const OpenCard: React.FC = () => {
             id="editable"
             contentEditable="true"
             className="rx-text-box"
-            placeholder="Scrivi una nota..."
+            placeholder="Write a note..."
             onFocus={onFocusBodyHeaderInputHandler}
             ref={bodyHeaderInputRef}
             onKeyDown={onKeyDownHandler}
@@ -89,7 +89,7 @@ export const OpenCard: React.FC = () => {
             <div className="icon-container xs-small scale-to-right">{redo}</div>
           </div>
           <div className="rx-body-header-footer-button" onClick={onCloseHandler}>
-            <div className="rx-button-transparent">Chiudi</div>
+            <div className="rx-button-transparent">Close</div>
           </div>
         </div>
       </div>}

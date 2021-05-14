@@ -33,9 +33,9 @@ export const Sidenav: React.FC = () => {
 
       <div
         className={`rx-sidenav-elem-container ${isActiveByKeyHandler('notifications') ? 'active' : ''}`}
-        onClick={() => setIsActiveHandler({label: 'Prememoria', key: 'notifications', value: true})}>
+        onClick={() => setIsActiveHandler({label: 'Reminder', key: 'notifications', value: true})}>
         {notifications}
-        <span className="rx-sidenav-elem-container-text">Prememoria</span>
+        <span className="rx-sidenav-elem-container-text">Reminder</span>
       </div>
 
       {
@@ -53,29 +53,28 @@ export const Sidenav: React.FC = () => {
 
       <div
         className={`rx-sidenav-elem-container ${isActiveByKeyHandler('edit_marks') ? 'active' : ''}`}
-        onClick={() => setIsActiveHandler({label: 'Modifica etichette', key: 'edit_marks', value: true})}>
+        onClick={() => setIsActiveHandler({label: 'Edit labels', key: 'edit_marks', value: true})}>
         {edit}
-        <span className="rx-sidenav-elem-container-text">Modifica etichette</span>
+        <span className="rx-sidenav-elem-container-text">Edit labels</span>
       </div>
 
       <div
         className={`rx-sidenav-elem-container ${isActiveByKeyHandler('archive') ? 'active' : ''}`}
-        onClick={() => setIsActiveHandler({label: 'Archivio', key: 'archive', value: true})}>
+        onClick={() => setIsActiveHandler({label: 'Archive', key: 'archive', value: true})}>
         {archive}
-        <span className="rx-sidenav-elem-container-text">Archivio</span>
+        <span className="rx-sidenav-elem-container-text">Archive</span>
       </div>
 
       <div
         className={`rx-sidenav-elem-container ${isActiveByKeyHandler('trash') ? 'active' : ''}`}
-        onClick={() => setIsActiveHandler({label: 'Cestino', key: 'trash', value: true})}>
+        onClick={() => setIsActiveHandler({label: 'Trash', key: 'trash', value: true})}>
         {delete_svg}
-        <span className="rx-sidenav-elem-container-text">Cestino</span>
+        <span className="rx-sidenav-elem-container-text">Trash</span>
       </div>
     </div>
 
     <div className="rx-sidenav-footer">
-      <a href="https://ssl.gstatic.com/keep/licenses/web_client_licenses.txt" target="_blank" tabIndex={0}>Licenze
-        open-source</a>
+      <a href="https://github.com/razxssd/rx-google-keep/blob/main/LICENSE" target="_blank" tabIndex={0}>Open-source license</a>
     </div>
   </div>
 };

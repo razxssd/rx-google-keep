@@ -10,7 +10,7 @@ export const Navbar: React.FC = () => {
   return <header className={`rx-navbar ${!navbarState.isBodyAtTop ? 'shadow' : ''}`}>
     <div className="content">
       <div className="rx-navbar-section-one">
-        <Tooltip label='Menu principale'>
+        <Tooltip label='Menu'>
           <div className="icon-container">
             {hamburger}
           </div>
@@ -30,7 +30,7 @@ export const Navbar: React.FC = () => {
         <form className="rx-navbar-form">
           <div className="rx-search-box">
             <div className="icon-container">{search}</div>
-            <input type="search" aria-label="Search through site content" placeholder="Cerca"/>
+            <input type="search" aria-label="Search through site content" placeholder="Search"/>
           </div>
         </form>
 

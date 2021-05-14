@@ -4,10 +4,12 @@ import React from "react";
 import Masonry from "masonry-layout";
 import { IBoardNote } from "../../core/interfaces/IBoardState";
 import { openCard } from "../../store/reducers/layout.store";
+import { getLayoutSidenavActiveElement } from "../../store/selectors/layout.selector";
 
 export const useBody = () => {
   const dispatch = useDispatch();
   const notes = useSelector(getBoardNotes);
+  const layoutActiveElement = useSelector(getLayoutSidenavActiveElement);
 
   React.useEffect(() => {
     var elem_2 = document.querySelector('.rx-masonry-grid');
@@ -32,6 +34,7 @@ export const useBody = () => {
   return {
     notes,
     noop,
-    onCardOpenHandler
+    onCardOpenHandler,
+    layoutActiveElement
   }
 }
